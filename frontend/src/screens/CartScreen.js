@@ -38,7 +38,7 @@ function CartScreen() {
   };
 
   const checkoutHandler = () => {
-    navigate(`/login?redirect=shipping`);
+    navigate('/shipping');
   };
 
   return (
@@ -99,8 +99,7 @@ function CartScreen() {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>
-                Subtotal {cartItems.reduce((acc, item) => acc + item.qty, 0)}{" "}
-                products{" "}
+                Subtotal
               </h2>
               $
               {cartItems
@@ -116,7 +115,7 @@ function CartScreen() {
               disabled={cartItems.length === 0}
               onClick={checkoutHandler}
             >
-              Proceed
+              Proceed to Checkout
             </Button>
           </ListGroup.Item>
         </Card>
