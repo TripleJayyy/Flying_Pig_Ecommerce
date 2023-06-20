@@ -190,7 +190,7 @@ function OrderScreen() {
 
                                     {!order.isPayed && (
                                         <ListGroup.Item>
-                                            {/* {loadingPay && <Loader />}
+                                            {loadingPay && <Loader />}
 
                                             {!sdkReady ? (
                                                 <Loader />
@@ -199,15 +199,7 @@ function OrderScreen() {
                                                         amount={order.totalPrice}
                                                         onSuccess={successPaymentHandler}
                                                     />
-                                                )} */}
-
-<form method="POST" action="https://btcpay0.voltageapp.io/apps/4QyazASBn3bj4pidUYDJyTUMMZJD/pos" >
-  <input type="hidden" name="email" value="customer@example.com" />
-  <input type="hidden" name="orderId" value="CustomOrderId" />
-  <input type="hidden" name="notificationUrl" value="https://example.com/callbacks" />
-  <input type="hidden" name="redirectUrl" value="https://example.com/thanksyou" />
-  <button type="submit" name="choiceKey" value="green-tea">Pay now</button>
-</form>
+                                                )}
                                         </ListGroup.Item>
                                     )}
                                 </ListGroup>
