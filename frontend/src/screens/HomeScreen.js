@@ -7,6 +7,8 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { listProducts } from "../actions/productActions";
 
+import ProductCarousel from "../components/ProductCarousel";
+
 function HomeScreen() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
@@ -18,7 +20,9 @@ function HomeScreen() {
 
   return (
     <div>
-      <h1>Latest Products</h1>
+      <ProductCarousel />
+
+      <h1>Products</h1>
 
       {loading ? 
         <Loader />

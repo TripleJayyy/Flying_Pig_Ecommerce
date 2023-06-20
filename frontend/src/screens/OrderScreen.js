@@ -59,7 +59,7 @@ function OrderScreen() {
             dispatch({ type: ORDER_PAY_RESET })
             dispatch({ type: ORDER_DELIVER_RESET })
             dispatch(getOrderDetails(orderId))
-        }else if (!order.isPaid) {
+        }else if (!order.isPayed) {
             if (!window.paypal) {
                 addPayPalScript()
             } else {
@@ -101,7 +101,7 @@ function OrderScreen() {
                                     </p>
 
                                     {order.isDelivered ? (
-                                        <Message variant='success'>Delivered on {order.deliveredAt}</Message>
+                                        <Message variant='success'>Delivered on {order.deliveredAt.substring(0,10)}</Message>
                                     ) : (
                                             <Message variant='warning'>Not Delivered</Message>
                                         )}
@@ -114,7 +114,7 @@ function OrderScreen() {
                                         {order.paymentMethod}
                                     </p>
                                     {order.isPayed ? (
-                                        <Message variant='success'>Paid on {order.paidAt}</Message>
+                                        <Message variant='success'>Paid on {order.paidAt.substring(0,10)}</Message>
                                     ) : (
                                             <Message variant='warning'>Not Paid</Message>
                                         )}
@@ -188,9 +188,9 @@ function OrderScreen() {
                                     </ListGroup.Item>
 
 
-                                    {!order.isPaid && (
+                                    {!order.isPayed && (
                                         <ListGroup.Item>
-                                            {loadingPay && <Loader />}
+                                            {/* {loadingPay && <Loader />}
 
                                             {!sdkReady ? (
                                                 <Loader />
@@ -199,12 +199,20 @@ function OrderScreen() {
                                                         amount={order.totalPrice}
                                                         onSuccess={successPaymentHandler}
                                                     />
-                                                )}
+                                                )} */}
+
+<form method="POST" action="https://btcpay0.voltageapp.io/apps/4QyazASBn3bj4pidUYDJyTUMMZJD/pos" >
+  <input type="hidden" name="email" value="customer@example.com" />
+  <input type="hidden" name="orderId" value="CustomOrderId" />
+  <input type="hidden" name="notificationUrl" value="https://example.com/callbacks" />
+  <input type="hidden" name="redirectUrl" value="https://example.com/thanksyou" />
+  <button type="submit" name="choiceKey" value="green-tea">Pay now</button>
+</form>
                                         </ListGroup.Item>
                                     )}
                                 </ListGroup>
                                 {loadingDeliver && <Loader />}
-                                {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                                {userInfo && userInfo.isAdmin && order.isPayed && !order.isDelivered && (
                                     <ListGroup.Item>
                                         <Button
                                             type='button'

@@ -17,7 +17,7 @@ function Product({ product }) {
           </Card.Title>
         </Link>
 
-        <Card.Text as="div">
+        {/* <Card.Text as="div">
           <div className="my-3">
             <Rating
               value={product.rating}
@@ -27,7 +27,7 @@ function Product({ product }) {
           </div>
         </Card.Text>
 
-        <Card.Text as="h3">${product.price}</Card.Text>
+        <Card.Text as="h3">${product.price}</Card.Text> */}
       </Card.Body>
     </Card>
   );
