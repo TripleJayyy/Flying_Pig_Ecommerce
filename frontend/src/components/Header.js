@@ -2,7 +2,7 @@ import React from "react";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+
 import { logout } from "../actions/userActions";
 
 function Header() {
@@ -11,7 +11,9 @@ function Header() {
 
   const dispatch = useDispatch();
 
-  const logoutHandler = () => {dispatch(logout())};
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
 
   return (
     <header>
@@ -62,6 +64,10 @@ function Header() {
                   </LinkContainer>
                 </NavDropdown>
               )}
+
+              <LinkContainer to="/">
+                <Navbar.Brand>History</Navbar.Brand>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>

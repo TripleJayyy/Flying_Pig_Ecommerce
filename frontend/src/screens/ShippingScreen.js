@@ -19,7 +19,7 @@ function ShippingScreen({ history }) {
   const [address, setAddress] = useState(shippingAddress.address);
   const [city, setCity] = useState(shippingAddress.city);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-  //const [country, setCountry] = useState(shippingAddress.country)
+  const [country, setCountry] = useState(shippingAddress.country)
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -66,7 +66,7 @@ function ShippingScreen({ history }) {
           ></Form.Control>
         </Form.Group>
 
-        {/* <Form.Group controlId='country'>
+        <Form.Group controlId='country'>
                     <Form.Label>Country</Form.Label>
                     <Form.Control
                         required
@@ -76,7 +76,7 @@ function ShippingScreen({ history }) {
                         onChange={(e) => setCountry(e.target.value)}
                     >
                     </Form.Control>
-                </Form.Group> */}
+                </Form.Group>
 
         <Button type="submit" variant="primary">
           Continue
